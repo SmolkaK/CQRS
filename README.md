@@ -41,4 +41,6 @@ Obsługa projektu:
 - mvn clean package -Dmaven.test.skip
 - budowa docker-compose
 
+Projekt kompilowany na OpenJDK jdk-8.0.282.08-hotspot
+
 Zarówno API jak i Swagger dostępne są na porcie 8089. Baza Postgres ma wystawiony port 5432.
