@@ -1,0 +1,19 @@
+version: "1"
+services:
+  postgres-db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=pass
+    ports:
+      - "5432:5432"
+  jokes-etl-app:
+    build: ./JokesETL
+    depends_on:
+      - postgres-db
+  jokes-search-engine-app:
+    build: ./JokesSearchEngine
+    ports:
+      - "8089:8089"
+    depends_on:
+      - postgres-db
+      - jokes-etl-app

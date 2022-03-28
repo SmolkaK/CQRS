@@ -1,0 +1,9 @@
+CREATE TABLE joke (
+	id BIGINT PRIMARY KEY,
+	category VARCHAR NOT NULL,
+    type VARCHAR NOT NULL,
+    content VARCHAR NOT NULL,
+	is_safe BOOL NOT NULL,
+	lang VARCHAR NOT NULL
+);
+

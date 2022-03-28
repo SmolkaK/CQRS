@@ -1,0 +1,31 @@
+Configutation:
+  name: Default
+  Properties:
+    Property:
+      name: log-path
+      value: "logs"
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "[%-5level] %d{ISO8601}{Europe/Berlin}{yyyy-MM-dd HH:mm:ss.SSS} %msg%n"
+      Filters:
+        ThresholdFilter:
+          level: info
+    File:
+      name: File_Appender
+      fileName: ${log-path}/logfile.log
+      Append: false
+      PatternLayout:
+        pattern: "[%-5level] %d{ISO8601}{Europe/Berlin}{yyyy-MM-dd HH:mm:ss.SSS} %msg%n"
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: Console_Appender
+    logger:
+      - name: Default
+        level: info
+        AppenderRef:
+          - ref: File_Appender
