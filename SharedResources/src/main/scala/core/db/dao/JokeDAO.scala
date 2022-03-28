@@ -31,13 +31,13 @@ trait JokeDAO extends PostgresConn with ActorUtils {
 
   private val table: profile.api.TableQuery[JokeTable] = TableQuery[JokeTable]
 
-  private implicit val jokeTypeColumnType: JdbcType[JokeType] with BaseTypedType[JokeType] =
+  private implicit lazy val jokeTypeColumnType: JdbcType[JokeType] with BaseTypedType[JokeType] =
     MappedColumnType.base[JokeType, String](
       { c => c.toString },
       { s => JokeType.withName(s) }
     )
 
-  private implicit val jokeCategoryColumnType: JdbcType[JokeCategory] with BaseTypedType[JokeCategory] =
+  private implicit lazy val jokeCategoryColumnType: JdbcType[JokeCategory] with BaseTypedType[JokeCategory] =
     MappedColumnType.base[JokeCategory, String](
       { c => c.toString },
       { s => JokeCategory.withName(s) }
